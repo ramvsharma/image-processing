@@ -7,9 +7,8 @@ img = np.zeros((512,512))
 
 for i in range(512):
 	for j in range(512):
-		img[i][j] = random.randint(0,256)
+		img[i][j] = random.random()
 
-print(img)
 
 cv2.imshow("a",img)
 cv2.waitKey(0)
