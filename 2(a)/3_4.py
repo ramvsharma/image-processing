@@ -3,21 +3,22 @@ import math
 import numpy as np
 
 cameramanimg = cv2.imread("../cameraman.tif")
+cameramanimg = cv2.cvtColor(cameramanimg,cv2.COLOR_BGR2GRAY)	#convert to gray 
 
 row = cameramanimg.shape[0]
 col = cameramanimg.shape[1]
 
-newImage = np.ndarray((col,row,3))
-newImage1 = np.ndarray((col,row,3))
+newImage = np.ndarray((row,col))
+newImage1 = np.ndarray((row,col))
 
 
 for i in range(row):
 	for j in range(col):
-		newImage[i][j] = 1*(cameramanimg[i][j][0]/255)**0.1
+		newImage[i][j] = 1*(cameramanimg[i][j]/255)**0.1
 
 for i in range(row):
 	for j in range(col):
-		newImage1[i][j] = 1*(cameramanimg[i][j][0]/255)**(1/2.5)
+		newImage1[i][j] = 1*(cameramanimg[i][j]/255)**(1/0.1)
 
 cv2.imshow("Original image",cameramanimg)
 cv2.imshow("c=1 image",newImage)
